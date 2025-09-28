@@ -10,7 +10,7 @@ export function bootstrapApp() {
   return of('').pipe(tap(hideSplashScreen));
 }
 
-export function hideSplashScreen(): void {
+function hideSplashScreen(): void {
   const splashScreen = document.getElementById('app-splash-screen');
   if (splashScreen) {
     // 1. Füge die Fade-Out-Klasse hinzu, um die CSS-Animation zu starten.
