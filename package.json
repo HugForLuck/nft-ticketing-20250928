@@ -18,7 +18,7 @@
   "author": "Bastian Krones",
   "private": true,
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/HugForLuck/nft-ticketing-20250928/issues"
   },

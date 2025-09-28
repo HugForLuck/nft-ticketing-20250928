@@ -1,5 +1,6 @@
 {
   "name": "@libs/shared-models",
   "version": "1.0.0",
-  "main": "src/index.ts"
+  "main": "src/index.ts",
+  "type": "module"
 }
