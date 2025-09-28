@@ -65,7 +65,7 @@
       "id": "terminate",
       "type": "command",
       "command": "workbench.action.tasks.terminate",
-      "args": "FRONTEND"
+      "args": "PORTAL"
     },
     {
       "id": "terminateBackend",
