@@ -8,7 +8,8 @@
     "start:backoffice": "npm start --workspace=backoffice",
     "start:scanner": "npm start --workspace=scanner",
     "start:api": "npm run start:dev --workspace=api",
-    "test": "npm test --workspaces --if-present"
+    "test": "npm test --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,html,css,json,md}\""
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
   ],
   "devDependencies": {
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "prettier": "^3.6.2"
   }
 }

@@ -1,7 +1,6 @@
 import { NgxsStoragePluginOptions } from '@ngxs/storage-plugin';
 import { AppState } from 'apps/portal/src/app/app.state';
 
-
 /**
  * Configuration for the NGXS storage plugin.
  * This object defines which parts of the state should be persisted.

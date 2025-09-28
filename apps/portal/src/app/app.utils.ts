@@ -5,8 +5,7 @@ export function bootstrapApp() {
   const path = window.location.pathname;
 
   // used to bypass auth check
-  if(hasEmailVerifyPath(path)) return of();
+  if (hasEmailVerifyPath(path)) return of();
 
   return of();
 }
-

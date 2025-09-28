@@ -10,7 +10,7 @@ import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
 import { withNgxsFormPlugin } from '@ngxs/form-plugin';
 import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
-import { provideStore, StateToken } from '@ngxs/store';
+import { provideStore } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
 import { IAppState } from 'apps/portal/src/app/app.model';
 import { bootstrapApp } from 'apps/portal/src/app/app.utils';
@@ -41,9 +41,9 @@ export const appStateDefaults: IAppState = {
   isReady: false,
 };
 
-export const appStateToken = new StateToken<IAppState>('app');
+// export const appStateToken = new StateToken<IAppState>('app');
 
 export const appStateOptions: ɵStoreOptions<IAppState> = {
-  name: appStateToken,
+  name: 'app',
   defaults: appStateDefaults,
 };
