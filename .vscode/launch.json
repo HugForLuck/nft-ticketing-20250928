@@ -1,15 +1,41 @@
 {
-  // See https://go.microsoft.com/fwlink/?linkid=830387
-  // for the documentation about the launch.json format
-  "version": "0.2.0",
+  "version": "0.1.0",
   "configurations": [
     {
-      "name": "Launch portal",
+      "name": "DEBUG PORTAL",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: start:portal",
-      "url": "http://localhost:4200/",
-      "webRoot": "${workspaceFolder}/apps/portal"
+      "preLaunchTask": "PORTAL",
+      "postDebugTask": "STOP PORTAL",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/apps/portal",
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///src/*": "${webRoot}/src/*",
+        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        // Diese Regel ist entscheidend für die @shared-Aliase
+        "webpack:///../../libs/*": "${workspaceFolder}/libs/*"
+      }
+    },
+    {
+      "name": "DEBUG BACKEND",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "preLaunchTask": "BACKEND",
+      "postDebugTask": "STOP BACKEND",
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/apps/backend/dist/**/*.js"],
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "DEBUG",
+      "configurations": ["DEBUG PORTAL", "DEBUG BACKEND"],
+      "stopAll": true
     }
   ]
 }

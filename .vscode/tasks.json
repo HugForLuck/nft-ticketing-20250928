@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // --- PORTAL TASKS ---
+    {
+      "label": "PORTAL",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "icon": {
+        "id": "browser",
+        "color": "terminal.ansiRed"
+      },
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      },
+      "options": { "cwd": "${workspaceFolder}/apps/portal" }
+    },
+    {
+      "label": "STOP PORTAL",
+      "command": "echo ${input:terminate}",
+      "type": "shell",
+      "problemMatcher": []
+    },
+    // --- BACKEND TASKS ---
+    {
+      "label": "BACKEND",
+      "type": "npm",
+      "script": "start:debug", // Wichtig: Wir nutzen ein spezielles Debug-Skript
+      "isBackground": true,
+      "icon": {
+        "id": "server",
+        "color": "terminal.ansiBlue"
+      },
+      "options": { "cwd": "${workspaceFolder}/apps/backend" },
+      "problemMatcher": {
+        "owner": "nestjs",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Starting compilation in watch mode.*",
+          "endsPattern": ".*Nest application successfully started.*"
+        }
+      }
+    },
+    {
+      "label": "STOP BACKEND",
+      "type": "shell",
+      "command": "echo ${input:terminateBackend}",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "FRONTEND"
+    },
+    {
+      "id": "terminateBackend",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "BACKEND"
+    }
+  ]
+}
