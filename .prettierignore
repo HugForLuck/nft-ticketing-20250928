@@ -1,0 +1,41 @@
+# ==============================================================================
+# Best Practice .prettierignore für ein Monorepo
+#
+# Zweck: Verhindert, dass Prettier versucht, generierte, installierte oder
+#        irrelevante Dateien zu formatieren. Dies verbessert die Performance.
+#        Die Regeln sind eng an der .gitignore ausgerichtet.
+# ==============================================================================
+
+# Abhängigkeiten
+node_modules/
+
+# Build-, Cache- & Test-Artefakte
+dist/
+build/
+out-tsc/
+bazel-out/
+coverage/
+.angular/
+.cache/
+.npm/
+.eslintcache
+*.tsbuildinfo
+.nyc_output/
+
+# Lock-Dateien & Logs
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.log
+
+# Sensible Konfigurationen
+.env
+.env.*
+!.env.example
+.firebaserc
+serviceAccountKey.json
+
+# System- & IDE-Dateien
+.DS_Store
+.idea/
+.vscode/
