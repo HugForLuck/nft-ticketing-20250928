@@ -12,9 +12,6 @@ import { cookieConsented } from 'apps/portal/src/cookies/cookies.utils';
  */
 @Injectable()
 export class CookiesStorageEngine implements StorageEngine {
-  constructor() {
-    console.log('🔴');
-  }
   // Injizieren Sie den Injector anstelle des Stores, um den Zirkelbezug zu durchbrechen.
   private injector = inject(Injector);
 
