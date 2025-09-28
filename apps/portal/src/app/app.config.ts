@@ -10,11 +10,13 @@ import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
 import { withNgxsFormPlugin } from '@ngxs/form-plugin';
 import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
+import { STORAGE_ENGINE, withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
 import { IAppState } from 'apps/portal/src/app/app.model';
 import { bootstrapApp } from 'apps/portal/src/app/app.utils';
-import { states } from 'apps/portal/src/ngxs/ngxs.config';
+import { CookiesStorageEngine } from 'apps/portal/src/cookies/cookie-storage.engine';
+import { ngxsStorageConfig, states } from 'apps/portal/src/ngxs/ngxs.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -29,8 +31,12 @@ export const appConfig: ApplicationConfig = {
       withNgxsFormPlugin(),
       withNgxsLoggerPlugin(),
       withNgxsRouterPlugin(),
-      // withNgxsStoragePlugin(ngxsStorageConfig),
+      withNgxsStoragePlugin(ngxsStorageConfig),
     ),
+    {
+      provide: STORAGE_ENGINE,
+      useClass: CookiesStorageEngine,
+    },
   ],
 };
 
