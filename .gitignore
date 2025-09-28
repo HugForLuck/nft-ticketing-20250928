@@ -1,0 +1,98 @@
+# ==============================================================================
+# Best Practice .gitignore für ein Angular & NestJS Monorepo
+#
+# Zweck: Stellt sicher, dass nur relevanter Quellcode versioniert wird.
+# Schließt generierte Dateien, Abhängigkeiten, Build-Artefakte,
+# sensible Informationen und lokale Konfigurationen aus.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# # 1. Abhängigkeiten & Laufzeit-Logs
+#    Der `node_modules`-Ordner enthält alle installierten Pakete und wird bei
+#    jedem `npm install` neu erstellt. Log-Dateien sind laufzeitspezifisch.
+# ------------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------------------------------------------------------
+# # 2. Build-, Cache- & Test-Artefakte
+#    Ausgabe von Build-Prozessen (tsc, ng build), Caching-Verzeichnisse
+#    und Test-Reports. Diese werden bei jedem Build/Testlauf neu generiert.
+# ------------------------------------------------------------------------------
+# Build-Ausgaben
+dist/
+build/
+out-tsc/
+bazel-out/
+
+# Caching-Verzeichnisse
+.angular/
+.cache/
+.npm/
+.eslintcache
+*.tsbuildinfo
+
+# Test-Ausgaben
+coverage/
+.nyc_output/
+
+# ------------------------------------------------------------------------------
+# # 3. Sensible Informationen & Umgebungs-Konfigurationen
+#    .env-Dateien enthalten API-Schlüssel, Datenbank-Zugangsdaten etc.
+#    und dürfen NIEMALS im Git-Repository landen.
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+# Ignoriert die lokale Angular Environment-Datei mit den echten Schlüsseln
+apps/frontend/src/environments/environment.*.ts
+
+# ------------------------------------------------------------------------------
+# # 4. IDEs, Editoren & Systemdateien
+#    Verhindert, dass benutzerspezifische Editor-Einstellungen und
+#    Systemdateien (macOS, Windows) versioniert werden.
+# ------------------------------------------------------------------------------
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# Andere Editoren & Systemdateien
+.idea/
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# ------------------------------------------------------------------------------
+# # 5. Firebase & Google Cloud
+#    Spezifische Konfigurationsdateien, die lokale Projektverknüpfungen oder
+#    automatisch heruntergeladene Service-Konten enthalten.
+# ------------------------------------------------------------------------------
+.firebaserc
+.runtimeconfig.json
+firebase-debug.log
+# Service Account Keys sollten niemals eingecheckt werden!
+serviceAccountKey.json
+
+# ------------------------------------------------------------------------------
+# # 6. Diagnose- & temporäre Dateien
+#    Laufzeit-Daten, Prozess-IDs und andere temporäre Dateien.
+# ------------------------------------------------------------------------------
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

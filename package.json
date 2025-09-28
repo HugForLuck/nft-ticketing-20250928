@@ -1,0 +1,33 @@
+{
+  "name": "nft-ticketing-20250928",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:portal": "npm start --workspace=portal",
+    "start:backoffice": "npm start --workspace=backoffice",
+    "start:scanner": "npm start --workspace=scanner",
+    "start:api": "npm run start:dev --workspace=api",
+    "test": "npm test --workspaces --if-present"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugForLuck/nft-ticketing-20250928.git"
+  },
+  "keywords": [],
+  "author": "Bastian Krones",
+  "private": true,
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HugForLuck/nft-ticketing-20250928/issues"
+  },
+  "homepage": "https://github.com/HugForLuck/nft-ticketing-20250928#readme",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
