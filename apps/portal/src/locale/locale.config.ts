@@ -21,7 +21,7 @@ export const defaultLocale: SupportedLocale = 'en-US';
  * Diese Liste ist die "Single Source of Truth" für alle sprachbezogenen Operationen,
  * wie z.B. die Sprachauswahl-Logik beim App-Start.
  */
-export const SUPPORTED_LOCALES: SupportedLocale[] = ['en-US', 'de-DE', 'de-AT', 'de-CH'];
+export const supportedLocales: SupportedLocale[] = ['en-US', 'de-DE', 'de-AT', 'de-CH'];
 
 /**
  * STATE

@@ -6,4 +6,4 @@ export interface ILocaleState {
   preferedLocale: SupportedLocale | null;
 }
 
-export type Context = StateContext<ILocaleState | null>;
+export type Context = StateContext<ILocaleState>;

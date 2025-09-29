@@ -1,16 +1,20 @@
-import { inject } from '@angular/core';
+import { inject, LOCALE_ID } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { hasEmailVerifyPath } from 'apps/portal/src/auth/auth.utils';
+import { SetActiveLocale } from 'apps/portal/src/locale/locale.actions';
+import { SupportedLocale } from 'apps/portal/src/locale/locale.config';
 import { of, tap } from 'rxjs';
 
 export function bootstrapApp() {
   const store = inject(Store);
+  const locale = inject(LOCALE_ID) as SupportedLocale;
 
   const path = window.location.pathname;
 
   // used to bypass auth check
   if (hasEmailVerifyPath(path)) return of();
 
+  store.dispatch(new SetActiveLocale(locale));
   // store.dispatch(new RedirectIfPreferedNotActive());
 
   return of('').pipe(tap(hideSplashScreen));

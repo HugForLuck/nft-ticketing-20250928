@@ -1,18 +1,12 @@
-import { inject, Injectable, LOCALE_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Action, Selector, State } from '@ngxs/store';
-import { RedirectIfPreferedNotActive, SetActiveLocale, SetPreferedLocale } from 'apps/portal/src/locale/locale.actions';
+import { InitLocales, SetActiveLocale, SetPreferedLocale } from 'apps/portal/src/locale/locale.actions';
 import { localeStateOptions, SupportedLocale } from 'apps/portal/src/locale/locale.config';
 import { Context, ILocaleState } from 'apps/portal/src/locale/locale.model';
 
 @State<ILocaleState>(localeStateOptions)
 @Injectable()
 export class LocaleState {
-  activeLocale = inject(LOCALE_ID) as SupportedLocale;
-
-  ngxsOnInit(ctx: Context) {
-    ctx.dispatch(new SetActiveLocale(this.activeLocale));
-  }
-
   @Selector()
   static preferedLocale(state: ILocaleState): SupportedLocale | null {
     return state.preferedLocale;
@@ -23,32 +17,54 @@ export class LocaleState {
     return state.activeLocale;
   }
 
+  @Action(InitLocales)
+  InitLocales(ctx: Context) {
+    // const state = ctx.getState();
+    // const locale = this.activeLocale;
+    // if (!state) {
+    //   ctx.setState({
+    //     activeLocale: locale,
+    //     preferedLocale: locale,
+    //   });
+    // } else if (state.preferedLocale) {
+    // }
+    // ctx.dispatch(new SetActiveLocale(this.activeLocale));
+    // const preferedLocale = ctx.getState()?.preferedLocale;
+    // if (!preferedLocale) {
+    //   ctx.dispatch(new SetPreferedLocale(this.activeLocale));
+    // }
+  }
+
   @Action(SetActiveLocale)
   setActiveLocale(ctx: Context, { activeLocale }: SetActiveLocale) {
-    ctx.patchState({ activeLocale });
+    const state = ctx.getState();
+    const defaultActiveLocale = state.activeLocale;
+    if (defaultActiveLocale !== activeLocale) {
+      ctx.patchState({ activeLocale });
+    }
   }
 
   @Action(SetPreferedLocale)
-  setLocale(ctx: Context, { preferedLocale }: SetPreferedLocale) {
-    ctx.patchState({ preferedLocale });
-  }
-
-  @Action(RedirectIfPreferedNotActive)
-  redirectIfPreferedNotActive(ctx: Context) {
+  setPreferedLocale(ctx: Context, { preferedLocale }: SetPreferedLocale) {
     const state = ctx.getState();
-    if (!state) return;
-
-    const preferedLocale = state.preferedLocale;
-    const activeLocale = state.activeLocale;
-
-    if (!preferedLocale) {
-      ctx.dispatch(new SetPreferedLocale(activeLocale));
-    } else if (preferedLocale !== activeLocale) {
-      // const win = document.defaultView;
-      // if (!win) return;
-      return;
-
-      // redirect to url/preferedLocale
+    if (state) {
+      const activeLocale = state.activeLocale;
+      ctx.setState({ ...state, activeLocale });
     }
   }
+
+  // @Action(RedirectIfPreferedNotActive)
+  // redirectIfPreferedNotActive(ctx: Context) {
+  //   const state = ctx.getState();
+  //   // if (!state) return;
+
+  //   // const preferedLocale = state.preferedLocale;
+  //   // const activeLocale = state.activeLocale;
+
+  //   // if (!preferedLocale) {
+  //   //   ctx.dispatch(new SetPreferedLocale(activeLocale));
+  //   // } else if (preferedLocale !== activeLocale) {
+  //   //   return;
+  //   // }
+  // }
 }
