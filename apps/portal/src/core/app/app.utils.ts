@@ -23,6 +23,8 @@ export function bootstrapApp() {
   return of('').pipe(tap(hideSplashScreen));
 }
 
+// TODO: only add Splashscreen here, remove everything into appState. So real animated/updating loading screen can be shown
+// app-screen-loader can be pushed out and in respectively and animated (are there better visually alternatives?)
 function hideSplashScreen(): void {
   const splashScreen = document.getElementById('app-splash-screen');
   if (splashScreen) {
