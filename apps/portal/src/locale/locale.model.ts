@@ -2,6 +2,7 @@ import { StateContext } from '@ngxs/store';
 import { SupportedLocale } from 'apps/portal/src/locale/locale.config';
 
 export interface ILocaleState {
+  activeLocale: SupportedLocale;
   preferedLocale: SupportedLocale | null;
 }
 

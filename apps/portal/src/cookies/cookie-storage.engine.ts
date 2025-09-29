@@ -93,7 +93,7 @@ export class CookiesStorageEngine implements StorageEngine {
   private getStorage(): Storage | Map<string, unknown> {
     // Rufen Sie auch hier die Store-Instanz bei Bedarf ab.
     const store = this.injector.get(Store);
-    const hasValidSettings = store.selectSnapshot(CookiesState.cookiesAreValid);
+    const hasValidSettings = store.selectSnapshot(CookiesState.cookiesSet);
     return hasValidSettings ? localStorage : this.inMemoryStorage;
   }
 }

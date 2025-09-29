@@ -28,6 +28,7 @@ export const SUPPORTED_LOCALES: SupportedLocale[] = ['en-US', 'de-DE', 'de-AT', 
  */
 export const localeStateDefaults: ILocaleState = {
   preferedLocale: null,
+  activeLocale: defaultLocale,
 };
 
 export const localeStateToken = new StateToken<ILocaleState>('locale');

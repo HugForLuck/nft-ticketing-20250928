@@ -7,7 +7,7 @@ import { ICookiesConsent, ICookiesState } from 'apps/portal/src/cookies/cookies.
 @Injectable()
 export class CookiesState {
   @Selector()
-  static cookiesAreValid(state: ICookiesState): boolean {
+  static cookiesSet(state: ICookiesState): boolean {
     return !!state;
   }
 

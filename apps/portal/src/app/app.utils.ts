@@ -1,11 +1,17 @@
+import { inject } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { hasEmailVerifyPath } from 'apps/portal/src/auth/auth.utils';
 import { of, tap } from 'rxjs';
 
 export function bootstrapApp() {
+  const store = inject(Store);
+
   const path = window.location.pathname;
 
   // used to bypass auth check
   if (hasEmailVerifyPath(path)) return of();
+
+  // store.dispatch(new RedirectIfPreferedNotActive());
 
   return of('').pipe(tap(hideSplashScreen));
 }
@@ -22,3 +28,24 @@ function hideSplashScreen(): void {
     }, 500); // Dauer muss mit der CSS-Transitions-Dauer übereinstimmen
   }
 }
+
+/**
+ * Redirects only if selected language by the user is not the same as current language
+ * @param langPreference  user's selected language (locale-storage)
+ * @param activeLocale active language (by html-tag)
+ * @returns false if both are equal else false
+ */
+// const redirectIfNewLanguage = (store: Store, activeLocale: SupportedLocale) => {
+//   const preferedLocaleIsNotActive = store.selectSnapshot(LocaleState.preferedLocaleIsNotActive);
+//   const win = document.defaultView;
+//   if (!win) return;
+
+//   if (preferedLocaleIsNotActive) {
+//     const currentPath = win?.location.pathname;
+//     const newUrl = currentPath?.replace(`/${activeLocale}`, `/${langPreference}`);
+//     store.dispatch(new SetLocaleId(langPreference));
+//     win.location.href = newUrl;
+//     return true;
+//   }
+//   return false;
+// };
