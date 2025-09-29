@@ -1,6 +1,6 @@
 import { StateToken } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
-import { ICookiesState } from 'apps/portal/src/cookies/cookies.model';
+import { ICookiesState } from 'apps/portal/src/core/cookies/cookies.model';
 
 /**
  * Assign Cookies to categories

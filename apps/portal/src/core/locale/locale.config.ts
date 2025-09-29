@@ -1,6 +1,6 @@
 import { StateToken } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
-import { ILocaleState } from 'apps/portal/src/locale/locale.model';
+import { ILocaleState } from 'apps/portal/src/core/locale/locale.model';
 
 /**
  * Definiert die von der Anwendung unterstützten Sprach- und Ländercodes (Locales).

@@ -13,15 +13,15 @@ import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { STORAGE_ENGINE, withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
-import { IAppState } from 'apps/portal/src/app/app.model';
-import { bootstrapApp } from 'apps/portal/src/app/app.utils';
-import { CookiesStorageEngine } from 'apps/portal/src/cookies/cookie-storage.engine';
-import { ngxsStorageConfig, states } from 'apps/portal/src/ngxs/ngxs.config';
+import { IAppState } from 'apps/portal/src/core/app/app.model';
+import { bootstrapApp } from 'apps/portal/src/core/app/app.utils';
+import { CookiesStorageEngine } from 'apps/portal/src/core/cookies/cookies.engine';
+import { ngxsStorageConfig, states } from 'apps/portal/src/core/ngxs/ngxs.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideAppInitializer(() => bootstrapApp()),
+    provideAppInitializer(bootstrapApp),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
@@ -39,6 +39,8 @@ export const appConfig: ApplicationConfig = {
     },
   ],
 };
+
+export const emailVerifyPath = '/auth/verify';
 
 /**
  * NGXS State Settings

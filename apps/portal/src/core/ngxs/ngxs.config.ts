@@ -1,9 +1,9 @@
 import { NgxsStoragePluginOptions } from '@ngxs/storage-plugin';
-import { AppState } from 'apps/portal/src/app/app.state';
-import { cookiesStateToken } from 'apps/portal/src/cookies/cookies.config';
-import { CookiesState } from 'apps/portal/src/cookies/cookies.state';
-import { localeStateToken } from 'apps/portal/src/locale/locale.config';
-import { LocaleState } from 'apps/portal/src/locale/locale.state';
+import { AppState } from 'apps/portal/src/core/app/app.state';
+import { cookiesStateToken } from 'apps/portal/src/core/cookies/cookies.config';
+import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
+import { localeStateToken } from 'apps/portal/src/core/locale/locale.config';
+import { LocaleState } from 'apps/portal/src/core/locale/locale.state';
 
 /**
  * Configuration for the NGXS storage plugin.

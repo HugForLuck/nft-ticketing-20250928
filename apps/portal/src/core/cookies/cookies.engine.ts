@@ -1,9 +1,9 @@
 import { inject, Injectable, Injector } from '@angular/core';
 import { StorageEngine } from '@ngxs/storage-plugin';
 import { Store } from '@ngxs/store';
-import { ESSENTIAL_STATES } from 'apps/portal/src/cookies/cookies.config';
-import { CookiesState } from 'apps/portal/src/cookies/cookies.state';
-import { cookieConsented } from 'apps/portal/src/cookies/cookies.utils';
+import { ESSENTIAL_STATES } from 'apps/portal/src/core/cookies/cookies.config';
+import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
+import { cookieConsented } from 'apps/portal/src/core/cookies/cookies.utils';
 
 /**
  * Eine NGXS Storage Engine, die nur Daten speichert,
@@ -93,7 +93,7 @@ export class CookiesStorageEngine implements StorageEngine {
   private getStorage(): Storage | Map<string, unknown> {
     // Rufen Sie auch hier die Store-Instanz bei Bedarf ab.
     const store = this.injector.get(Store);
-    const hasValidSettings = store.selectSnapshot(CookiesState.cookiesSet);
+    const hasValidSettings = store.selectSnapshot(CookiesState.cookiesAreValid);
     return hasValidSettings ? localStorage : this.inMemoryStorage;
   }
 }

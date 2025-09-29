@@ -1,5 +1,5 @@
-import { COMFORT_STATES } from 'apps/portal/src/cookies/cookies.config';
-import { ICookiesConsent } from 'apps/portal/src/cookies/cookies.model';
+import { COMFORT_STATES } from 'apps/portal/src/core/cookies/cookies.config';
+import { ICookiesConsent } from 'apps/portal/src/core/cookies/cookies.model';
 
 export function cookieConsented(cookies: ICookiesConsent | null, cookieToBeChecked: string) {
   if (!cookies) return false;
