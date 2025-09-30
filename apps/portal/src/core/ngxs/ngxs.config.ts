@@ -4,8 +4,8 @@ import { cookiesStateToken } from 'apps/portal/src/core/cookies/cookies.config';
 import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
 import { localeStateToken } from 'apps/portal/src/core/locale/locale.config';
 import { LocaleState } from 'apps/portal/src/core/locale/locale.state';
-import { themeStateToken } from 'apps/portal/src/core/theme.config';
-import { ThemeState } from 'apps/portal/src/core/theme.state';
+import { themeStateToken } from 'apps/portal/src/core/theme/theme.config';
+import { ThemeState } from 'apps/portal/src/core/theme/theme.state';
 
 /**
  * Configuration for the NGXS storage plugin.

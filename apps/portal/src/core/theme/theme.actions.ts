@@ -1,4 +1,4 @@
-import { Theme } from 'apps/portal/src/core/theme.config';
+import { Theme } from 'apps/portal/src/core/app/app.model';
 
 // Eine Action, um das Theme zu wechseln.
 export class SetActiveTheme {

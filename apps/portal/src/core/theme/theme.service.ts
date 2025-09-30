@@ -1,6 +1,6 @@
 import { DOCUMENT, Injectable, Renderer2, RendererFactory2, effect, inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ThemeState } from 'apps/portal/src/core/theme.state';
+import { ThemeState } from 'apps/portal/src/core/theme/theme.state';
 
 @Injectable({
   providedIn: 'root',

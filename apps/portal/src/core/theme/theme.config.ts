@@ -1,5 +1,5 @@
 import { StateToken, ɵStoreOptions } from '@ngxs/store/internals';
-import { IThemeState } from 'apps/portal/src/core/theme.model';
+import { IThemeState } from 'apps/portal/src/core/theme/theme.model';
 
 export type Theme = 'light' | 'dark';
 
