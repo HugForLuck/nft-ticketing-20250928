@@ -18,7 +18,7 @@ export class App implements OnInit {
   store = inject(Store);
 
   ngOnInit() {
-    timer(2000)
+    timer(0)
       .pipe(tap(() => this.store.dispatch(new SetIsLoading(false))))
       .subscribe();
   }

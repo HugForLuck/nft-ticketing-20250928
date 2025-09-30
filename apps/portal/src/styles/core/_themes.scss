@@ -1,0 +1,34 @@
+@use 'colors';
+
+/*
+  ==========================================================================
+  THEMES (_themes.scss)
+  ==========================================================================
+  Zweck:
+  - Mappt die SCSS-Variablen aus `_variables.scss` auf semantische
+    CSS Custom Properties (z.B. --background-color).
+  - Definiert die Farbwerte für das Light- und Dark-Theme.
+  - Dies ist die Brücke zwischen deinen Design Tokens und der Anwendung im Browser.
+  ==========================================================================
+*/
+
+// Light Theme (wird als Standard verwendet)
+:root,
+body[data-theme='light'] {
+  --background-color: #{colors.$gray-100};
+  --text-color: #{colors.$color-gray-900};
+  --primary-color: #{colors.$color-blue-500};
+  --card-background: #{colors.$color-white};
+  --spinner-track-color: #{rgba(colors.$color-gray-900, 0.2)};
+  --spinner-color: #{colors.$color-gray-900};
+}
+
+// Dark Theme
+body[data-theme='dark'] {
+  --background-color: #{colors.$color-gray-900};
+  --text-color: #{colors.$gray-100};
+  --primary-color: #{colors.$color-blue-400};
+  --card-background: #{colors.$color-gray-800};
+  --spinner-track-color: #{rgba(colors.$color-white, 0.2)};
+  --spinner-color: #{colors.$color-white};
+}

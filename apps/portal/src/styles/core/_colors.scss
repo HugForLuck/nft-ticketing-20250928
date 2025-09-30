@@ -1,0 +1,20 @@
+/*
+  ==========================================================================
+  COLOR PALETTE (_coolor.scss)
+  ==========================================================================
+  Zweck:
+  - Dies ist die EINZIGE Datei, in der rohe Farbwerte (z.B. #3b82f6)
+  - Dient als "Single Source of Truth" für dein Design System.
+  ==========================================================================
+*/
+
+// === Farbpalette ===
+// Definiere deine Markenfarben und Grautöne hier.
+$color-blue-500: #3b82f6;
+$color-blue-400: #60a5fa;
+
+$gray-100: #f4f4f5;
+$color-gray-800: #27272a;
+$color-gray-900: #18181b;
+
+$color-white: #ffffff;

@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
-import { SetActiveTheme, ToggleActiveTheme } from 'apps/portal/src/core/theme.actions';
-import { defaultTheme, Theme, themeStateOptions } from 'apps/portal/src/core/theme.config';
-import { IThemeState } from 'apps/portal/src/core/theme.model';
-import { ThemeService } from 'apps/portal/src/core/theme.service';
+import { Theme } from 'apps/portal/src/core/app/app.model';
+import { SetActiveTheme, ToggleActiveTheme } from 'apps/portal/src/core/theme/theme.actions';
+import { defaultTheme, themeStateOptions } from 'apps/portal/src/core/theme/theme.config';
+import { IThemeState } from 'apps/portal/src/core/theme/theme.model';
+import { ThemeService } from 'apps/portal/src/core/theme/theme.service';
 
 @State<IThemeState>(themeStateOptions)
 @Injectable()

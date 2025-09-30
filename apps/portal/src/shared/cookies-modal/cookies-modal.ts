@@ -4,5 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-cookies-modal',
   templateUrl: './cookies-modal.html',
   styleUrl: './cookies-modal.scss',
+  host: {
+    class: 'modal',
+  },
 })
 export class CookiesModal {}
