@@ -1,9 +1,4 @@
-import {
-  ApplicationConfig,
-  provideAppInitializer,
-  provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection,
-} from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
@@ -14,14 +9,13 @@ import { STORAGE_ENGINE, withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 import { ɵStoreOptions } from '@ngxs/store/internals';
 import { IAppState } from 'apps/portal/src/core/app/app.model';
-import { bootstrapApp } from 'apps/portal/src/core/app/app.utils';
 import { CookiesStorageEngine } from 'apps/portal/src/core/cookies/cookies.engine';
 import { ngxsStorageConfig, states } from 'apps/portal/src/core/ngxs/ngxs.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideAppInitializer(bootstrapApp),
+    // provideAppInitializer(hideSplashScreen),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
