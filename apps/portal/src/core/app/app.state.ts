@@ -36,6 +36,7 @@ export class AppState {
 
   @Action(SetIsLoading)
   setIsLoading(ctx: Context, { isLoading }: SetIsLoading) {
-    ctx.patchState({ isLoading });
+    const state = ctx.getState();
+    ctx.setState({ ...state, isLoading });
   }
 }

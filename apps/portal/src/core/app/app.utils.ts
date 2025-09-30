@@ -1,7 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { SetIsLoading } from 'apps/portal/src/core/app/app.actions';
 import { emailVerifyPath } from 'apps/portal/src/core/app/app.config';
 import { SetActiveLocale } from 'apps/portal/src/core/locale/locale.actions';
 import { of, tap } from 'rxjs';
@@ -19,10 +18,7 @@ export function bootstrapApp() {
   // }
   store.dispatch(new SetActiveLocale(userLocale, isBrowser));
 
-  return of('').pipe(
-    tap(hideSplashScreen),
-    tap(() => store.dispatch(new SetIsLoading(false))),
-  );
+  return of('').pipe(tap(hideSplashScreen));
 }
 
 // TODO: only add Splashscreen here, remove everything into appState. So real animated/updating loading screen can be shown

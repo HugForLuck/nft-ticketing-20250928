@@ -1,4 +1,38 @@
 :host {
+  /* Wir definieren den Host als einen Block, der die volle Größe des Viewports einnimmt. */
   display: block;
-  background-color: rgb(131, 125, 125);
+  position: relative; /* Wichtig für die Positionierung der animierten Kinder */
+  width: 100vw;
+  height: 100vh;
+  /* DIES IST DIE ENTSCHEIDENDE KORREKTUR:
+    Alles, was die Grenzen dieses Containers verlässt (wie unser herausschiebender Loader),
+    wird abgeschnitten und ist nicht mehr sichtbar. Das verhindert die Scrollbar.
+  */
+  overflow: hidden;
+}
+
+.enter {
+  animation: slide-in 1s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.leave {
+  animation: slide-out 1s;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

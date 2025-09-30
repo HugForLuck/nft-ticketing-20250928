@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngxs/store';
+import { SetIsLoading } from 'apps/portal/src/core/app/app.actions';
 import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
 import { AppLoader } from 'apps/portal/src/shared/app-loader/app-loader';
+import { tap, timer } from 'rxjs';
 import { CookiesModal } from '../../shared/cookies-modal/cookies-modal';
 
 @Component({
@@ -11,8 +13,14 @@ import { CookiesModal } from '../../shared/cookies-modal/cookies-modal';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
+export class App implements OnInit {
   store = inject(Store);
+
+  ngOnInit() {
+    timer(2000)
+      .pipe(tap(() => this.store.dispatch(new SetIsLoading(false))))
+      .subscribe();
+  }
 
   showCookiesModal = !this.store.selectSnapshot(CookiesState.cookiesAreValid);
 

@@ -1,10 +1,12 @@
-@if(showCookiesModal) {
-<app-cookies-modal></app-cookies-modal>
-}
 
 @if(appIsLoading()) {
-<app-loader></app-loader>
+<app-loader animate.leave="leave"></app-loader>
 } @else {
-<h1>Hello World!</h1>
-<router-outlet />
+<main animate.enter="enter">
+  @if(showCookiesModal) {
+  <app-cookies-modal></app-cookies-modal>
+  }
+  <h1>Hello World!</h1>
+  <router-outlet />
+</main>
 }
