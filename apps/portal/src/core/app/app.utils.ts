@@ -1,9 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { BootstrapApp } from 'apps/portal/src/core/app/app.actions';
 import { emailVerifyPath } from 'apps/portal/src/core/app/app.config';
-import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
-import { SetActiveLocale } from 'apps/portal/src/core/locale/locale.actions';
 import { of, tap } from 'rxjs';
 
 export function bootstrapApp() {
@@ -11,14 +10,15 @@ export function bootstrapApp() {
   const isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   let userLocale = null;
-  const functionalConsented = store.selectSnapshot(CookiesState.functionalConsented);
-  if (functionalConsented && !isPathEmailVerify()) {
-    // TODO: login user with firebase (authState)
-    // TODO: load `dbLocale` fromDB (localeState)
-    // userLocale = dbLocale;
-  }
+  // const functionalConsented = store.selectSnapshot(CookiesState.functionalConsented);
+  // if (functionalConsented && !isPathEmailVerify()) {
+  //   // TODO: login user with firebase (authState)
+  //   // TODO: load `dbLocale` fromDB (localeState)
+  //   // userLocale = dbLocale;
+  // }
+  // store.dispatch(new SetActiveLocale(userLocale, isBrowser));
 
-  store.dispatch(new SetActiveLocale(userLocale, isBrowser));
+  store.dispatch(new BootstrapApp());
 
   return of('').pipe(tap(hideSplashScreen));
 }

@@ -14,7 +14,7 @@ export const ngxsStorageConfig: NgxsStoragePluginOptions = {
    * Specifies which state slices to persist in the browser's local storage.
    * add stateTokens
    */
-  keys: [cookiesStateToken, localeStateToken],
+  keys: [cookiesStateToken, localeStateToken, 'app'],
 };
 
 /**

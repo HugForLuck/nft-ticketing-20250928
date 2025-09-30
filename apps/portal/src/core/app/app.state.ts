@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State } from '@ngxs/store';
-import { BootstrapApp, SetIsReady } from 'apps/portal/src/core/app/app.actions';
+import { BootstrapApp, SetIsLoading } from 'apps/portal/src/core/app/app.actions';
 import { appStateDefaults } from 'apps/portal/src/core/app/app.config';
 import { Context, IAppState } from 'apps/portal/src/core/app/app.model';
 
@@ -10,16 +10,23 @@ import { Context, IAppState } from 'apps/portal/src/core/app/app.model';
 })
 @Injectable()
 export class AppState {
+  ngxsOnInit(ctx: Context) {
+    ctx.dispatch(new SetIsLoading(true));
+  }
   @Selector()
-  static isReady(state: IAppState) {
-    return state.isReady;
+  static isLoading(state: IAppState) {
+    return state.isLoading;
   }
 
   @Action(BootstrapApp)
-  bootstrap(ctx: Context) {}
+  bootstrap(ctx: Context) {
+    setTimeout(() => {
+      ctx.dispatch(new SetIsLoading(false));
+    }, 1000);
+  }
 
-  @Action(SetIsReady)
-  setIsReady(ctx: Context, { isReady }: SetIsReady) {
-    ctx.patchState({ isReady });
+  @Action(SetIsLoading)
+  setIsLoading(ctx: Context, { isLoading }: SetIsLoading) {
+    ctx.patchState({ isLoading });
   }
 }

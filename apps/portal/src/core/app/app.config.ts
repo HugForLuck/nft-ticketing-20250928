@@ -46,7 +46,7 @@ export const emailVerifyPath = '/auth/verify';
  * NGXS State Settings
  */
 export const appStateDefaults: IAppState = {
-  isReady: false,
+  isLoading: true,
 };
 
 // export const appStateToken = new StateToken<IAppState>('app');
