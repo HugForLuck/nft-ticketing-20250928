@@ -4,6 +4,8 @@ import { cookiesStateToken } from 'apps/portal/src/core/cookies/cookies.config';
 import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
 import { localeStateToken } from 'apps/portal/src/core/locale/locale.config';
 import { LocaleState } from 'apps/portal/src/core/locale/locale.state';
+import { themeStateToken } from 'apps/portal/src/core/theme.config';
+import { ThemeState } from 'apps/portal/src/core/theme.state';
 
 /**
  * Configuration for the NGXS storage plugin.
@@ -14,13 +16,13 @@ export const ngxsStorageConfig: NgxsStoragePluginOptions = {
    * Specifies which state slices to persist in the browser's local storage.
    * add stateTokens
    */
-  keys: [cookiesStateToken, localeStateToken, 'app'],
+  keys: [cookiesStateToken, localeStateToken, 'app', themeStateToken],
 };
 
 /**
  * An array of all state classes that should be initialized by NGXS.
  */
-export const states = [AppState, CookiesState, LocaleState];
+export const states = [AppState, CookiesState, LocaleState, ThemeState];
 
 // export function withNgxsLoggerPlugin(options?: any) {
 //   return makeEnvironmentProviders([

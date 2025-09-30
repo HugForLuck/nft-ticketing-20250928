@@ -17,3 +17,34 @@ p,
 h1 {
   margin: 0;
 }
+
+/* Light Theme (wird als Standard verwendet) */
+:root,
+body[data-theme='dark'] {
+  --background-color: #18181b; /* Fast Schwarz */
+  --text-color: #f4f4f5; /* Helles Grau */
+  --primary-color: #60a5fa; /* Helleres Blau */
+  --card-background: #27272a;
+}
+
+/* Dark Theme */
+/* Diese Regeln werden nur aktiv, wenn der Body das Attribut data-theme="dark" hat */
+body[data-theme='light'] {
+  --background-color: #f4f4f5; /* Helles Grau */
+  --text-color: #18181b; /* Fast Schwarz */
+  --primary-color: #3b82f6; /* Blau */
+  --card-background: #ffffff;
+}
+
+/*
+  Globale Stile, die die Variablen nutzen.
+  Sie passen sich automatisch an.
+*/
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  /* Ein sanfter Übergang beim Theme-Wechsel */
+  transition:
+    all 0.3s ease,
+    color 0.3s ease;
+}

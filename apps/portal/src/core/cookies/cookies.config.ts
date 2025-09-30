@@ -5,7 +5,7 @@ import { ICookiesState } from 'apps/portal/src/core/cookies/cookies.model';
 /**
  * Assign Cookies to categories
  */
-export const ESSENTIAL_STATES = ['cookies', 'locale', 'app']; // z.B. Cookie-Einstellungen und Sprache
+export const ESSENTIAL_STATES = ['cookies', 'locale', 'app', 'theme']; // z.B. Cookie-Einstellungen und Sprache
 export const FUNCTIONAL_STATES = ['auth']; // z.B. Auth
 export const COMFORT_STATES = ['onboarding']; // z.B. Theme-Selektion
 export const MARKETING_STATES = [''];

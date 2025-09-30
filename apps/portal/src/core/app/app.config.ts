@@ -41,6 +41,7 @@ export const emailVerifyPath = '/auth/verify';
  */
 export const appStateDefaults: IAppState = {
   isLoading: true,
+  theme: 'dark',
 };
 
 // export const appStateToken = new StateToken<IAppState>('app');
