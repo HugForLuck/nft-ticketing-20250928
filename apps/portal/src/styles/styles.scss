@@ -1,3 +1,4 @@
+@use 'sass:map';
 /*
   ==========================================================================
   HAUPT-SCSS-DATEI (styles.scss)
@@ -11,6 +12,7 @@
 
 // 2. Core-Stile (Grundlagen für die gesamte Seite)
 
+@forward 'core/spaces';
 @forward 'core/typography';
 @forward 'core/themes';
 @use 'core/palettes' as p;
@@ -21,12 +23,12 @@
 
 body {
   // Set the dark theme as the default.
-  @include t.define-theme-variables(map-get(p.$themes, dark));
+  @include t.theme(map.get(p.$themes, dark));
 
   // Override variables if the light theme is active.
   &[data-theme='light'] {
-    @include t.define-theme-variables(map-get(p.$themes, light));
+    @include t.theme(map.get(p.$themes, light));
   }
 
-  background-color: var(--p-surface-1);
+  background-color: var(--color-surface-1);
 }

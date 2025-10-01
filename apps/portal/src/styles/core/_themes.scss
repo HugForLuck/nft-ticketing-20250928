@@ -7,34 +7,33 @@
     CSS Custom Properties (z.B. --color-surface-1).
   ==========================================================================
 */
-
-@mixin define-theme-variables($theme-map) {
+@mixin theme($theme-map) {
   // Surfaces (Hintergründe)
-  --color-surface-1: #{macolor-get($theme-map, 'surface-1')};
-  --color-surface-2: #{macolor-get($theme-map, 'surface-2')};
-  --color-surface-modal: #{macolor-get($theme-map, 'surface-modal')};
+  --color-surface-1: #{map-get($theme-map, 'surface-1')};
+  --color-surface-2: #{map-get($theme-map, 'surface-2')};
+  --color-surface-modal: #{map-get($theme-map, 'surface-modal')};
 
   // On-Surfaces (Schrift & Icons auf Hintergründen)
-  --color-on-surface-primary: #{macolor-get($theme-map, 'on-surface-primary')};
-  --color-on-surface-secondary: #{macolor-get($theme-map, 'on-surface-secondary')};
-  --color-on-surface-disabled: #{macolor-get($theme-map, 'on-surface-disabled')};
+  --color-on-surface-primary: #{map-get($theme-map, 'on-surface-primary')};
+  --color-on-surface-secondary: #{map-get($theme-map, 'on-surface-secondary')};
+  --color-on-surface-disabled: #{map-get($theme-map, 'on-surface-disabled')};
 
   // Primary Action
-  --color-primary: #{macolor-get($theme-map, 'primary')};
-  --color-primary-hover: #{macolor-get($theme-map, 'primary-hover')};
-  --color-primary-active: #{macolor-get($theme-map, 'primary-active')};
-  --color-on-primary: #{macolor-get($theme-map, 'on-primary')};
+  --color-primary: #{map-get($theme-map, 'primary')};
+  --color-primary-hover: #{map-get($theme-map, 'primary-hover')};
+  --color-primary-active: #{map-get($theme-map, 'primary-active')};
+  --color-on-primary: #{map-get($theme-map, 'on-primary')};
 
   // Focus Ring for Accessibility
-  --color-focus-ring: #{macolor-get($theme-map, 'primary')};
+  --color-focus-ring: #{map-get($theme-map, 'primary')};
 
   // Status: Success
-  --color-success-bg: #{macolor-get($theme-map, 'success-bg')};
-  --color-success-text: #{macolor-get($theme-map, 'success-text')};
-  --color-success-border: #{macolor-get($theme-map, 'success-border')};
+  --color-success-bg: #{map-get($theme-map, 'success-bg')};
+  --color-success-text: #{map-get($theme-map, 'success-text')};
+  --color-success-border: #{map-get($theme-map, 'success-border')};
 
   // Status: Error
-  --color-error-bg: #{macolor-get($theme-map, 'error-bg')};
-  --color-error-text: #{macolor-get($theme-map, 'error-text')};
-  --color-error-border: #{macolor-get($theme-map, 'error-border')};
+  --color-error-bg: #{map-get($theme-map, 'error-bg')};
+  --color-error-text: #{map-get($theme-map, 'error-text')};
+  --color-error-border: #{map-get($theme-map, 'error-border')};
 }
