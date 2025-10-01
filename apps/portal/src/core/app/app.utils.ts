@@ -3,8 +3,6 @@ import { inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { emailVerifyPath } from 'apps/portal/src/core/app/app.config';
 import { SetActiveLocale } from 'apps/portal/src/core/locale/locale.actions';
-import { SetActiveTheme } from 'apps/portal/src/core/theme/theme.actions';
-import { defaultTheme } from 'apps/portal/src/core/theme/theme.config';
 import { of, tap } from 'rxjs';
 
 export function bootstrapApp() {
@@ -19,7 +17,7 @@ export function bootstrapApp() {
   //   // userLocale = dbLocale;
   // }
   store.dispatch(new SetActiveLocale(userLocale, isBrowser));
-  store.dispatch(new SetActiveTheme(defaultTheme));
+  // store.dispatch(new SetActiveTheme(defaultTheme));
 
   return of('').pipe(tap(hideSplashScreen));
 }
