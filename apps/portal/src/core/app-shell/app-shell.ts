@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CookiesModal } from '../../shared/cookies-modal/cookies-modal';
 
@@ -10,5 +10,6 @@ import { CookiesModal } from '../../shared/cookies-modal/cookies-modal';
   templateUrl: './app-shell.html',
   styleUrl: './app-shell.scss',
   imports: [RouterOutlet, CookiesModal],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppShell {}

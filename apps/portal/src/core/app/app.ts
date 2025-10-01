@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { SetIsLoading } from 'apps/portal/src/core/app/app.actions';
 import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
@@ -12,6 +12,7 @@ import { AppShell } from '../app-shell/app-shell';
   imports: [AppLoader, AppShell],
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App implements OnInit {
   store = inject(Store);
