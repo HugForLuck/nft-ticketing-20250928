@@ -9,13 +9,24 @@
   ==========================================================================
 */
 
-// 1. Variablen und Mixins (Werkzeuge, die von anderen Dateien benötigt werden)
-@forward 'core/variables';
-// @forward 'core/colors';
-
 // 2. Core-Stile (Grundlagen für die gesamte Seite)
-@forward 'core/reset';
-// @import 'typography';
-@use 'core/themes';
+
+@forward 'core/typography';
+@forward 'core/themes';
+@use 'core/palettes' as p;
+@use 'core/themes' as t;
+@use 'core/reset';
 
 @forward 'components/modal';
+
+body {
+  // Set the dark theme as the default.
+  @include t.define-theme-variables(map-get(p.$themes, dark));
+
+  // Override variables if the light theme is active.
+  &[data-theme='light'] {
+    @include t.define-theme-variables(map-get(p.$themes, light));
+  }
+
+  background-color: var(--p-surface-1);
+}

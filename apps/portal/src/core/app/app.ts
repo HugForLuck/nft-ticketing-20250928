@@ -6,11 +6,10 @@ import { ToggleActiveTheme } from 'apps/portal/src/core/theme/theme.actions';
 import { AppLoader } from 'apps/portal/src/shared/app-loader/app-loader';
 import { tap, timer } from 'rxjs';
 import { AppShell } from '../../shared/app-shell/app-shell';
-import { CookiesModal } from '../../shared/cookies-modal/cookies-modal';
 
 @Component({
   selector: 'app-root',
-  imports: [CookiesModal, AppLoader, AppShell],
+  imports: [AppLoader, AppShell],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

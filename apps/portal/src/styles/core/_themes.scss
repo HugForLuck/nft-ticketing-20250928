@@ -1,39 +1,40 @@
-@use 'colors';
-
 /*
   ==========================================================================
   THEMES (_themes.scss)
   ==========================================================================
   Zweck:
   - Mappt die SCSS-Variablen aus `_variables.scss` auf semantische
-    CSS Custom Properties (z.B. --background-color).
-  - Definiert die Farbwerte für das Light- und Dark-Theme.
-  - Dies ist die Brücke zwischen deinen Design Tokens und der Anwendung im Browser.
+    CSS Custom Properties (z.B. --color-surface-1).
   ==========================================================================
 */
 
-// Light Theme (wird als Standard verwendet)
-:root,
-body[data-theme='light'] {
-  --background-color: #{colors.$gray-100};
-  --text-color: #{colors.$color-gray-900};
-  --primary-color: #{colors.$color-blue-500};
-  --card-background: #{colors.$color-white};
-  --spinner-track-color: #{rgba(colors.$color-gray-900, 0.2)};
-  --spinner-color: #{colors.$color-gray-900};
-}
+@mixin define-theme-variables($theme-map) {
+  // Surfaces (Hintergründe)
+  --color-surface-1: #{macolor-get($theme-map, 'surface-1')};
+  --color-surface-2: #{macolor-get($theme-map, 'surface-2')};
+  --color-surface-modal: #{macolor-get($theme-map, 'surface-modal')};
 
-// Dark Theme
-body[data-theme='dark'] {
-  --background-color: #{colors.$color-gray-900};
-  --text-color: #{colors.$gray-100};
-  --primary-color: #{colors.$color-blue-400};
-  --card-background: #{colors.$color-gray-800};
-  --spinner-track-color: #{rgba(colors.$color-white, 0.2)};
-  --spinner-color: #{colors.$color-white};
-}
+  // On-Surfaces (Schrift & Icons auf Hintergründen)
+  --color-on-surface-primary: #{macolor-get($theme-map, 'on-surface-primary')};
+  --color-on-surface-secondary: #{macolor-get($theme-map, 'on-surface-secondary')};
+  --color-on-surface-disabled: #{macolor-get($theme-map, 'on-surface-disabled')};
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  // Primary Action
+  --color-primary: #{macolor-get($theme-map, 'primary')};
+  --color-primary-hover: #{macolor-get($theme-map, 'primary-hover')};
+  --color-primary-active: #{macolor-get($theme-map, 'primary-active')};
+  --color-on-primary: #{macolor-get($theme-map, 'on-primary')};
+
+  // Focus Ring for Accessibility
+  --color-focus-ring: #{macolor-get($theme-map, 'primary')};
+
+  // Status: Success
+  --color-success-bg: #{macolor-get($theme-map, 'success-bg')};
+  --color-success-text: #{macolor-get($theme-map, 'success-text')};
+  --color-success-border: #{macolor-get($theme-map, 'success-border')};
+
+  // Status: Error
+  --color-error-bg: #{macolor-get($theme-map, 'error-bg')};
+  --color-error-text: #{macolor-get($theme-map, 'error-text')};
+  --color-error-border: #{macolor-get($theme-map, 'error-border')};
 }
