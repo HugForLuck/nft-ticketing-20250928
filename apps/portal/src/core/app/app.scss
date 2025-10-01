@@ -12,7 +12,7 @@
 }
 
 .enter {
-  animation: slide-in 1s;
+  animation: slide-in 3s;
 }
 
 @keyframes slide-in {
@@ -25,7 +25,7 @@
 }
 
 .leave {
-  animation: slide-out 1s;
+  animation: slide-out 3s;
 }
 
 @keyframes slide-out {

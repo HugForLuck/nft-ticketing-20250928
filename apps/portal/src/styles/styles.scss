@@ -1,36 +1,3 @@
-// html {
-//   height: 100%;
-// }
-
-// /*
-//   Grundlegende Stile für den Body, um ein Überlaufen während der Animation zu verhindern.
-// */
-// body {
-//   height: 100%;
-//   margin: 0;
-//   font-family: sans-serif;
-//   margin: 0;
-//   overflow-x: hidden; /* Verhindert horizontales Scrollen während der Transition */
-// }
-
-// p,
-// h1 {
-//   margin: 0;
-// }
-
-// /*
-//   Globale Stile, die die Variablen nutzen.
-//   Sie passen sich automatisch an.
-// */
-// body {
-//   background-color: var(--background-color);
-//   color: var(--text-color);
-//   /* Ein sanfter Übergang beim Theme-Wechsel */
-//   transition:
-//     all 0.3s ease,
-//     color 0.3s ease;
-// }
-
 /*
   ==========================================================================
   HAUPT-SCSS-DATEI (styles.scss)
@@ -43,14 +10,12 @@
 */
 
 // 1. Variablen und Mixins (Werkzeuge, die von anderen Dateien benötigt werden)
-@import 'core/variables';
+@forward 'core/variables';
+// @forward 'core/colors';
 
 // 2. Core-Stile (Grundlagen für die gesamte Seite)
-@import 'core/reset';
+@forward 'core/reset';
 // @import 'typography';
-@import 'core/themes';
+@use 'core/themes';
 
-@import 'components/modal';
-
-// 3. Globale Stile für den App Loader
-// @import 'loader';
+@forward 'components/modal';

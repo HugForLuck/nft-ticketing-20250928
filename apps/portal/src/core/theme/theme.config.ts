@@ -8,7 +8,7 @@ export type Theme = 'light' | 'dark';
  * Diese wird verwendet, wenn keine passende Sprache ermittelt werden kann
  * oder als Fallback.
  */
-export const defaultTheme: Theme = 'light';
+export const defaultTheme: Theme = 'dark';
 
 /**
  * STATE

@@ -2,11 +2,5 @@
 @if(appIsLoading()) {
 <app-loader animate.leave="leave"></app-loader>
 } @else {
-<main animate.enter="enter">
-  @if(showCookiesModal) {
-  <app-cookies-modal></app-cookies-modal>
-  }
-  <button (click)="toggleTheme()">Toggle Theme</button>
-  <router-outlet />
-</main>
+<app-shell animate.enter="enter"></app-shell>
 }

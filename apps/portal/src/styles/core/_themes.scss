@@ -32,3 +32,8 @@ body[data-theme='dark'] {
   --spinner-track-color: #{rgba(colors.$color-white, 0.2)};
   --spinner-color: #{colors.$color-white};
 }
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
