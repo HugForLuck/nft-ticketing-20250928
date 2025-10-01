@@ -9,7 +9,7 @@
   ==========================================================================
 */
 
-.modal-backdrop {
+.modal {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -21,7 +21,7 @@
   animation: backdrop-fade-in 0.3s ease-out;
 }
 
-.modal {
+.modal-container {
   background-color: var(--color-surface-modal);
   color: var(--color-on-surface-primary);
   border-radius: 12px;

@@ -14,11 +14,14 @@ export const ANALYTIC_STATES = [''];
 /**
  * State related config
  */
-export const cookiesStateDetauls: ICookiesState | null = null;
+export const cookiesStateDefaults: ICookiesState = {
+  functional: false,
+  comfort: false,
+};
 
 export const cookiesStateToken = new StateToken<ICookiesState>('cookies');
 
-export const cookiesStateOptions: ɵStoreOptions<ICookiesState | null> = {
+export const cookiesStateOptions: ɵStoreOptions<ICookiesState> = {
   name: cookiesStateToken,
-  defaults: cookiesStateDetauls,
+  defaults: cookiesStateDefaults,
 };

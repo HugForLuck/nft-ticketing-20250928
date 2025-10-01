@@ -5,7 +5,7 @@ import { CookiesState } from 'apps/portal/src/core/cookies/cookies.state';
 import { ToggleActiveTheme } from 'apps/portal/src/core/theme/theme.actions';
 import { AppLoader } from 'apps/portal/src/shared/app-loader/app-loader';
 import { tap, timer } from 'rxjs';
-import { AppShell } from '../../shared/app-shell/app-shell';
+import { AppShell } from '../app-shell/app-shell';
 
 @Component({
   selector: 'app-root',

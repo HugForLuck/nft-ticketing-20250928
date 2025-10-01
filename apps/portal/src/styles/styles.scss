@@ -19,6 +19,8 @@
 @use 'core/themes' as t;
 @use 'core/reset';
 
+@forward 'components/form';
+@forward 'components/button';
 @forward 'components/modal';
 
 body {

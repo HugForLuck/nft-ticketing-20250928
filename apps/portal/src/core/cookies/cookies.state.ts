@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Selector, State } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { UpdateCookieSettings } from 'apps/portal/src/core/cookies/cookies.action';
 import { cookiesStateOptions } from 'apps/portal/src/core/cookies/cookies.config';
 import { ICookiesConsent, ICookiesState } from 'apps/portal/src/core/cookies/cookies.model';
 
@@ -30,5 +31,17 @@ export class CookiesState {
   static functionalConsented(state: ICookiesState | null): boolean {
     if (!state) return false;
     return state?.functional;
+  }
+
+  @Selector()
+  static getCookieSettings(state: ICookiesState | null): ICookiesConsent | null {
+    if (!state) return null;
+    return { functional: state?.functional, comfort: state?.comfort };
+  }
+
+  @Action(UpdateCookieSettings)
+  updateCookieSettings(ctx: StateContext<ICookiesState | null>, { settings }: UpdateCookieSettings) {
+    const state = ctx.getState();
+    ctx.setState({ ...state, ...settings });
   }
 }

@@ -1,0 +1,83 @@
+// /*
+//   ==========================================================================
+//   FORMS (_forms.scss)
+//   ==========================================================================
+//   Zweck:
+//   - Stellt grundlegendes Styling für Formularelemente bereit.
+//   ==========================================================================
+// */
+
+// .form-group {
+//   display: flex;
+//   flex-direction: column;
+//   gap: var(--spacing-2);
+// }
+
+// .form-label {
+//   font-weight: var(--font-weight-medium);
+//   font-size: var(--font-size-sm);
+//   color: var(--color-on-surface-secondary);
+// }
+
+// .form-input {
+//   background-color: var(--color-surface-2);
+//   border: 1px solid var(--color-surface-2);
+//   border-radius: 8px;
+//   padding: var(--spacing-4);
+//   color: var(--color-on-surface-primary);
+//   font-size: var(--font-size-base);
+//   transition:
+//     border-color 0.2s,
+//     box-shadow 0.2s;
+
+//   &:focus {
+//     outline: none;
+//     border-color: var(--color-primary);
+//     box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.2);
+//   }
+
+//   &::placeholder {
+//     color: var(--color-on-surface-disabled);
+//   }
+// }
+
+// // Basis-Styling für Checkboxen
+// input[type='checkbox'] {
+//   appearance: none;
+//   background-color: var(--color-surface-2);
+//   margin: 0;
+//   font: inherit;
+//   color: currentColor;
+//   width: 1.15em;
+//   height: 1.15em;
+//   border: 0.15em solid var(--color-on-surface-disabled);
+//   border-radius: 0.25em;
+//   transform: translateY(-0.075em);
+//   display: grid;
+//   place-content: center;
+
+//   &::before {
+//     content: '';
+//     width: 0.65em;
+//     height: 0.65em;
+//     transform: scale(0);
+//     transition: 120ms transform ease-in-out;
+//     box-shadow: inset 1em 1em var(--color-primary);
+//     transform-origin: bottom left;
+//     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+//   }
+
+//   &:checked::before {
+//     transform: scale(1);
+//   }
+
+//   &:focus {
+//     outline: max(2px, 0.15em) solid var(--color-primary);
+//     outline-offset: max(2px, 0.15em);
+//   }
+
+//   &:disabled {
+//     opacity: 0.5;
+//     cursor: not-allowed;
+//   }
+// }

@@ -11,7 +11,7 @@ import { ɵStoreOptions } from '@ngxs/store/internals';
 import { IAppState } from 'apps/portal/src/core/app/app.model';
 import { CookiesStorageEngine } from 'apps/portal/src/core/cookies/cookies.engine';
 import { ngxsStorageConfig, states } from 'apps/portal/src/core/ngxs/ngxs.config';
-import { routes } from '../../shared/app-shell/app-shell.routes';
+import { routes } from '../app-shell/app-shell.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [

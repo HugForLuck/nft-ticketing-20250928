@@ -1,0 +1,53 @@
+/*
+  ==========================================================================
+  BUTTONS (_buttons.scss)
+  ==========================================================================
+  Zweck:
+  - Definiert wiederverwendbare Button-Stile.
+  ==========================================================================
+*/
+
+.btn {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+  user-select: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+.btn--secondary {
+  background-color: var(--color-surface-2);
+  color: var(--color-on-surface-primary);
+  border-color: var(--color-surface-2);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-modal);
+    border-color: var(--color-primary);
+  }
+}

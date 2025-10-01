@@ -1,1 +1,72 @@
-<h1>COOKIES</h1>
+<div class="modal-backdrop">
+  <div class="modal cookies-modal" role="dialog" aria-modal="true"
+    aria-labelledby="cookie-modal-title">
+    <div class="modal__header">
+      <h2 id="cookie-modal-title" class="modal__title">Ihre Privatsphäre ist uns
+        wichtig</h2>
+    </div>
+
+    <form class="cookies-modal__form" [formGroup]="cookieForm"
+      (ngSubmit)="saveSelection()">
+      <div class="modal__content">
+        <p class="cookies-modal__description">
+          Wir verwenden Cookies und ähnliche Technologien, um die Funktionalität
+          unserer Seite zu gewährleisten und Ihr
+          Erlebnis zu verbessern. Bitte treffen Sie Ihre Auswahl.
+        </p>
+
+        <fieldset
+          class="cookies-modal__fieldset cookies-modal__fieldset--disabled">
+          <input class="cookies-modal__checkbox" id="essential-cookies"
+            type="checkbox" checked disabled />
+          <div class="cookies-modal__info">
+            <label for="essential-cookies"
+              class="cookies-modal__label">Technisch Notwendig</label>
+            <p class="cookies-modal__description">
+              Diese Cookies sind für die Kernfunktionalität der Website
+              erforderlich und können nicht deaktiviert
+              werden.
+            </p>
+          </div>
+        </fieldset>
+
+        <fieldset class="cookies-modal__fieldset">
+          <input class="cookies-modal__checkbox" id="functional-cookies"
+            type="checkbox" formControlName="functional" />
+          <div class="cookies-modal__info">
+            <label for="functional-cookies"
+              class="cookies-modal__label">Funktional</label>
+            <p class="cookies-modal__description">
+              Ermöglichen grundlegende Funktionen wie den sicheren Login und die
+              Aufrechterhaltung Ihrer Sitzung.
+            </p>
+          </div>
+        </fieldset>
+
+        <fieldset class="cookies-modal__fieldset">
+          <input class="cookies-modal__checkbox" id="comfort-cookies"
+            type="checkbox" formControlName="comfort" />
+          <div class="cookies-modal__info">
+            <label for="comfort-cookies"
+              class="cookies-modal__label">Komfort</label>
+            <p class="cookies-modal__description">
+              Speichert persönliche Einstellungen wie das Farbschema (z.B. Dark
+              Mode) für ein persönlicheres Erlebnis.
+            </p>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="modal__footer cookies-modal__footer">
+        <div class="cookies-modal__actions">
+          <button class="btn btn--secondary" type="button"
+            (click)="acceptNecessary()">Nur Notwendige</button>
+          <button class="btn btn--primary" type="submit">Auswahl
+            speichern</button>
+          <button class="btn btn--primary" type="button"
+            (click)="acceptAll()">Alle akzeptieren</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
