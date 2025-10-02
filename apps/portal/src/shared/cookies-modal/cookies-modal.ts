@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { UpdateCookieSettings } from 'apps/portal/src/core/cookies/cookies.action';
@@ -28,6 +28,12 @@ export class CookiesModal implements OnInit, OnDestroy {
   public cookieForm = this.fb.group(cookieFormConfig);
 
   private readonly destroy$ = new Subject<void>();
+
+  showDetails = signal(false);
+
+  toggleDetails() {
+    this.showDetails.set(!this.showDetails());
+  }
 
   /**
    * @description

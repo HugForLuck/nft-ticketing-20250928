@@ -1,11 +1,12 @@
-<div class="modal-backdrop">
-  <div class="modal cookies-modal" role="dialog" aria-modal="true"
+<div class="modal">
+  <div class="modal-container cookies-modal" role="dialog" aria-modal="true"
     aria-labelledby="cookie-modal-title">
     <div class="modal__header">
       <h2 id="cookie-modal-title" class="modal__title">Ihre Privatsphäre ist uns
         wichtig</h2>
     </div>
 
+    @if(showDetails()) {
     <form class="cookies-modal__form" [formGroup]="cookieForm"
       (ngSubmit)="saveSelection()">
       <div class="modal__content">
@@ -55,18 +56,31 @@
             </p>
           </div>
         </fieldset>
-      </div>
-
-      <div class="modal__footer cookies-modal__footer">
-        <div class="cookies-modal__actions">
-          <button class="btn btn--secondary" type="button"
-            (click)="acceptNecessary()">Nur Notwendige</button>
-          <button class="btn btn--primary" type="submit">Auswahl
-            speichern</button>
-          <button class="btn btn--primary" type="button"
-            (click)="acceptAll()">Alle akzeptieren</button>
+        <div class="modal__footer cookies-modal__footer">
+          <div class="cookies-modal__actions">
+            <button class="btn btn--primary" type="submit">Auswahl
+              Speichern</button>
+          </div>
         </div>
       </div>
     </form>
+    } @else {
+    <p>
+      Wir verwenden Cookies, um die Funktionalität der Seite zu gewährleisten
+      und
+      Ihr Erlebnis zu verbessern. Bitte
+      treffen Sie Ihre Auswahl.
+    </p>
+    <div class="modal__footer cookies-modal__footer">
+      <div class="cookies-modal__actions">
+        <button class="btn btn--secondary" type="button"
+          (click)="acceptNecessary()">Nur Notwendige</button>
+        <button class="btn btn--primary" type="button"
+          (click)="toggleDetails()">Anpassen</button>
+        <button class="btn btn--primary" type="button"
+          (click)="acceptAll()">Alle akzeptieren</button>
+      </div>
+    </div>
+    }
   </div>
 </div>
